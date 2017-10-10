@@ -1,6 +1,12 @@
+all: README.md
 
-README.md:
-	touch README.md
-	echo "title:guessinggame">README.md
-	echo `date '+%Y%m%d-%H%M%S'` >>README.md
-	echo `wc -l guessinggame.sh`>>README.md
+README.md:guessinggame.sh
+	echo "Title: Guessing Game">README.md
+	echo -n "README was generated at:">>README.md
+	date>>README.md
+	echo>>README.md
+	echo "lines count in guessingname.sh">>README.md
+	wc -l<guessinggame.sh >>README.md
+
+clean:
+	rm README.md
